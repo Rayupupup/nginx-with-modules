@@ -24,7 +24,5 @@ make && make install
 ARG NGINX_VERSION=1.20.1-alpine
 FROM nginx:${NGINX_VERSION}
 LABEL maintainer="liwenjun2049@gmail.com"
-# Mirror
-RUN sed -i 's#http://deb.debian.org#https://mirrors.ustc.edu.cn#g' /etc/apt/sources.list
 #Copy ngx_http_security_headers_module module
 COPY --from=builder /usr/local/nginx/modules/ngx_http_security_headers_module.so /etc/nginx/modules/ngx_http_security_headers_module.so
